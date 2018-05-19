@@ -21,8 +21,7 @@ let schema = buildSchema(
             post(user_id: String, post_id: String) : Post!
             posts(user_id: String) : [Post]
         }
-    `
-);
+`);
 
 // set maps id to User object
 let userslist = {
@@ -49,7 +48,7 @@ let postslist = {
         },
         b: {
             id: "b",
-            user: userslist["a"],
+            user: userslist["b"],
             caption: "Angular Book :)",
             image: "https://cdn-images-1.medium.com/max/1000/1*ltLfTw87lE-Dqt-BKNdj1A.jpeg"
         },
