@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import "./Post.css";
 
 class Post extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-
         const nickname = this.props.nickname;
         const avatar = this.props.avatar;
         const image = this.props.image;
@@ -31,15 +25,18 @@ class Post extends Component {
                         <img src={image} alt={caption} />
                     </div>
                 </div>
-                <div className="Post-caption">
+                <div className="Post-user">
                     <div className="Post-user-nickname">
-                        <strong>{nickname}</strong>
+                        <span>{nickname}</span>
                     </div>
-                    {caption}
+                    <div className="Post-caption">
+                        <span>{caption}</span>
+                    </div>
                 </div>
             </article>
         );
     }
 }
+
 
 export default Post;

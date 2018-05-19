@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Post from './components/Post';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 import './App.css';
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <Header />
-                <section className="App-main">
-                    <Post nickname="Chris" avatar="https://www.laravelnigeria.com/img/chris.jpg"
-                        caption="Moving the community !!!"
-                        image = "https://pbs.twimg.com/media/DOXI0IEXkAAkokm.jpg" />
-                    <Post nickname="OG"
-                        avatar="https://www.laravelnigeria.com/img/chris.jpg"
-                        caption="Moving the community"
-                        image = "https://pbs.twimg.com/media/DOXI0IEXkAAkokm.jpg" />
+const client = new ApolloClient({
+    uri:"http://localhost:4000/graphql"
+});
 
-                    { /* more posts */ }
+const App = () => {
+    return (
+        <ApolloProvider client={client}>
+            <div className="App">
+                <Header/>
+                <section className="App-main">
+                    <Post/>
                 </section>
             </div>
-        );
-    }
-}
+        </ApolloProvider>
+    );
+};
 
 export default App;
